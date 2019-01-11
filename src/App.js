@@ -19,16 +19,16 @@ class App extends Component {
     });
   }
   render() {
-    let tasks = [
-        {name:"Learn Angular",category:"wip", bgcolor: "yellow"},
-        {name:"React", category:"wip", bgcolor:"pink"},
-        {name:"Vue", category:"complete", bgcolor:"skyblue"}
+    let questions = [
+        {name:"Learn Angular",category:"truth", bgcolor: "yellow"},
+        {name:"React", category:"truth", bgcolor:"pink"},
+        {name:"Vue", category:"lie", bgcolor:"skyblue"}
       ]
     let WithBorderInput = withBorder (InputTag);
 
     return (
       <div className="App">
-        <AppDragDropDemo tasks={tasks} />
+        <AppDragDropDemo questions={questions} />
       </div>
     );
   }

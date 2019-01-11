@@ -3,7 +3,7 @@ import './App.css';
 
 export default class AppDragDropDemo extends Component {
     state = {
-        tasks: this.props.tasks
+        questions: this.props.questions
     }
 
     onDragStart = (ev, id) => {
@@ -18,7 +18,7 @@ export default class AppDragDropDemo extends Component {
     onDrop = (ev, cat) => {
        let id = ev.dataTransfer.getData("id");
 
-       let tasks = this.state.tasks.filter((task) => {
+       let questions = this.state.questions.filter((task) => {
            if (task.name == id) {
                task.category = cat;
            }
@@ -27,18 +27,18 @@ export default class AppDragDropDemo extends Component {
 
        this.setState({
            ...this.state,
-           tasks
+           questions
        });
     }
 
     render() {
-        var tasks = {
-            wip: [],
-            complete: []
+        var questions = {
+            truth: [],
+            lie: []
         }
 
-        this.state.tasks.forEach ((t) => {
-            tasks[t.category].push(
+        this.state.questions.forEach ((t) => {
+            questions[t.category].push(
                 <div key={t.name}
                     onDragStart = {(e) => this.onDragStart(e, t.name)}
                     draggable
@@ -53,17 +53,17 @@ export default class AppDragDropDemo extends Component {
         return (
             <div className="container-drag">
                 <h2 className="header">DRAG & DROP DEMO</h2>
-                <div className="wip"
+                <div className="truth"
                     onDragOver={(e)=>this.onDragOver(e)}
-                    onDrop={(e)=>{this.onDrop(e, "wip")}}>
-                    <span className="task-header">WIP</span>
-                    {tasks.wip}
+                    onDrop={(e)=>{this.onDrop(e, "truth")}}>
+                    <span className="task-header">truth</span>
+                    {questions.truth}
                 </div>
                 <div className="droppable"
                     onDragOver={(e)=>this.onDragOver(e)}
-                    onDrop={(e)=>this.onDrop(e, "complete")}>
-                     <span className="task-header">COMPLETED</span>
-                     {tasks.complete}
+                    onDrop={(e)=>this.onDrop(e, "lie")}>
+                     <span className="task-header">lieD</span>
+                     {questions.lie}
                 </div>
 
 
