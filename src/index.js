@@ -8,5 +8,5 @@ import AppWithModal from './AppWithModal';
 
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<AppWithModal />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
